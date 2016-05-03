@@ -1,0 +1,379 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+    <title>Test Widget</title>
+    <script type='text/javascript' src="Scripts/jquery-1.9.1.js"> </script>
+    <script type='text/javascript' src="Scripts/SidebarApi-1.3.5.js"> </script>
+    <script type='text/javascript' src="Scripts/json2.js"></script>
+    <script type='text/javascript' src="scripts/json.htmTable.js"></script>
+    <style type='text/css'>
+        @import 'Styles.css';
+    </style>
+    <style type='text/css'>
+        .succ
+        {
+            color: Green;
+        }
+        .fail
+        {
+            color: Red;
+        }
+        .resultblock
+        {
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+            border-bottom: solid 1px #aaaaaa;
+        }
+        #requestNames
+        {
+            text-align: left;
+            font-size: 12px;
+            width:100%;
+        }
+        #requestNames td
+        {
+            width:33.3%;
+            border-bottom:solid 1px #eeeeee;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="outerContainer">
+        <!-- MD Events Display Header!-->
+        <div class="form">
+            <label>
+                MD Events Display</label>
+        </div>
+        <br />
+        <!-- Allow user to choose an option from the drop down list and associated information will be returned for the currently opened patient file !-->
+        <div class="form">
+            Database Timeout (seconds): <input type="text" id="txtTimeout" value="10" />
+            <input type="button" id="btnStart" value="Request Data" />
+            <table id="requestNames" cellpadding="0" cellspacing="0">
+                <tr id="requestName0">
+                    <td>
+                        Clinical
+                    </td>
+                    <td class="requestNameFlag">
+                    </td>
+                    <td class="requestNameTime">
+                    </td>
+                </tr>
+                <tr id="requestName1">
+                    <td>
+                        Allergy
+                    </td>
+                    <td class="requestNameFlag">
+                    </td>
+                    <td class="requestNameTime">
+                    </td>
+                </tr>
+                <tr id="requestName2">
+                    <td>
+                        Consultation
+                    </td>
+                    <td class="requestNameFlag">
+                    </td>
+                    <td class="requestNameTime">
+                    </td>
+                </tr>
+                <tr id="requestName3">
+                    <td>
+                        Demographics
+                    </td>
+                    <td class="requestNameFlag">
+                    </td>
+                    <td class="requestNameTime">
+                    </td>
+                </tr>
+                <tr id="requestName4">
+                    <td>
+                        Diagnosis
+                    </td>
+                    <td class="requestNameFlag">
+                    </td>
+                    <td class="requestNameTime">
+                    </td>
+                </tr>
+                <tr id="requestName5">
+                    <td>
+                        History
+                    </td>
+                    <td class="requestNameFlag">
+                    </td>
+                    <td class="requestNameTime">
+                    </td>
+                </tr>
+                <tr id="requestName6">
+                    <td>
+                        Immunisation
+                    </td>
+                    <td class="requestNameFlag">
+                    </td>
+                    <td class="requestNameTime">
+                    </td>
+                </tr>
+                <tr id="requestName7">
+                    <td>
+                        Measurement
+                    </td>
+                    <td class="requestNameFlag">
+                    </td>
+                    <td class="requestNameTime">
+                    </td>
+                </tr>
+                <tr id="requestName8">
+                    <td>
+                        Pathology
+                    </td>
+                    <td class="requestNameFlag">
+                    </td>
+                    <td class="requestNameTime">
+                    </td>
+                </tr>
+                <tr id="requestName9">
+                    <td>
+                        PathologyAtom
+                    </td>
+                    <td class="requestNameFlag">
+                    </td>
+                    <td class="requestNameTime">
+                    </td>
+                </tr>
+                <tr id="requestName10">
+                    <td>
+                        Practice
+                    </td>
+                    <td class="requestNameFlag">
+                    </td>
+                    <td class="requestNameTime">
+                    </td>
+                </tr>
+                <tr id="requestName11">
+                    <td>
+                        Prescription
+                    </td>
+                    <td class="requestNameFlag">
+                    </td>
+                    <td class="requestNameTime">
+                    </td>
+                </tr>
+                <tr id="requestName12">
+                    <td>
+                        TestRequest
+                    </td>
+                    <td class="requestNameFlag">
+                    </td>
+                    <td class="requestNameTime">
+                    </td>
+                </tr>
+                <tr id="requestName13">
+                    <td>
+                        RX
+                    </td>
+                    <td class="requestNameFlag">
+                    </td>
+                    <td class="requestNameTime">
+                    </td>
+                </tr>
+                <tr id="requestName14">
+                    <td>
+                        Practitioner (public)
+                    </td>
+                    <td class="requestNameFlag">
+                    </td>
+                    <td class="requestNameTime">
+                    </td>
+                </tr>
+                <tr id="requestName15">
+                    <td>
+                        Practitioner (private)
+                    </td>
+                    <td class="requestNameFlag">
+                    </td>
+                    <td class="requestNameTime">
+                    </td>
+                </tr>
+                <!--<tr id="requestName16">
+                    <td>
+                        AddressBook
+                    </td>
+                    <td class="requestNameFlag">
+                    </td>
+                    <td class="requestNameTime">
+                    </td>
+                </tr>
+                <tr id="requestName17">
+                    <td>
+                        GetUserList
+                    </td>
+                    <td class="requestNameFlag">
+                    </td>
+                    <td class="requestNameTime">
+                    </td>
+                </tr>
+                <tr id="requestName18">
+                    <td>
+                        GetDocumentList
+                    </td>
+                    <td class="requestNameFlag">
+                    </td>
+                    <td class="requestNameTime">
+                    </td>
+                </tr>-->
+            </table>
+        </div>
+        <br />
+        <!-- Based on the selected option, associated information will display here !-->
+        <div id="results-container">
+            <div id="result-box" style="width: 100%; height: 350px; overflow: scroll; text-align: left;
+                word-wrap: break-word;" />
+        </div>
+    </div>
+    <script type="text/javascript">
+        window.PatientID = 0;
+
+        handlers = new Array();
+        var timeout = 10;
+
+        var fullResult = new Array();
+
+        var i = 0;
+
+        handlers[i++] = function () { Sidebar.Settings.sendClinicalRequest({ "PatientID": window.PatientID, "DatabaseTimeout": timeout }); }; //0
+        handlers[i++] = function () { Sidebar.Settings.sendAllergyRequest({ "PatientID": window.PatientID, "DatabaseTimeout": timeout }); }; //1
+        handlers[i++] = function () { Sidebar.Settings.sendConsultationRequest({ "PatientID": window.PatientID, "DatabaseTimeout": timeout }); }; //2
+        handlers[i++] = function () { Sidebar.Settings.sendDemographicsRequest({ "PatientID": window.PatientID, "DatabaseTimeout": timeout }); }; //3
+        handlers[i++] = function () { Sidebar.Settings.sendDiagnosisRequest({ "PatientID": window.PatientID, "DatabaseTimeout": timeout }); }; //4
+        handlers[i++] = function () { Sidebar.Settings.sendHistoryRequest({ "PatientID": window.PatientID, "DatabaseTimeout": timeout }); }; //5
+        handlers[i++] = function () { Sidebar.Settings.sendImmunisationRequest({ "PatientID": window.PatientID, "DatabaseTimeout": timeout }); }; //6
+        handlers[i++] = function () { Sidebar.Settings.sendMeasurementRequest({ "PatientID": window.PatientID, "DatabaseTimeout": timeout }); }; //7
+        handlers[i++] = function () { Sidebar.Settings.sendPathologyRequest({ "PatientID": window.PatientID, "DatabaseTimeout": timeout }); }; //8
+        handlers[i++] = function () { Sidebar.Settings.sendPathologyAtomRequest({ "PathologyId": 1, "DatabaseTimeout": timeout }); }; //9
+        handlers[i++] = function () { Sidebar.Settings.sendPracticeRequest({ "DatabaseTimeout": timeout }); }; //10
+        handlers[i++] = function () { Sidebar.Settings.sendPrescriptionRequest({ "PatientID": window.PatientID, "DatabaseTimeout": timeout }); }; //11
+        handlers[i++] = function () { Sidebar.Settings.sendTestRequestRequest({ "PatientID": window.PatientID, "DatabaseTimeout": timeout }); }; //12
+        handlers[i++] = function () { Sidebar.Settings.sendRXRequest({ "PatientID": window.PatientID, "DatabaseTimeout": timeout }); }; //13
+        handlers[i++] = function () { Sidebar.Settings.sendPractitionerRequest({ ResourceId: +Sidebar.Settings.readPropertyBagValue("userId"), "DatabaseTimeout": timeout }); }; //14
+        handlers[i++] = function () { Sidebar.Settings.sendPractitionerRequest({ ResourceId: +Sidebar.Settings.readPropertyBagValue("userId"), "DatabaseTimeout": timeout }, true); }; //15
+//        handlers[i++] = function () { Sidebar.Settings.sendAddressBookRequest(); }; //16
+//        handlers[i++] = function () { Sidebar.Settings.sendGetUserListRequest(); }; //17
+//        handlers[i++] = function () { Sidebar.Settings.sendDocumentListRequest({ "PatientID": window.PatientID }); }; //18
+
+        var startTime;
+        var results = new Array();
+        var curAction = 0;
+        var curTry = 1;
+        $("#btnStart").click(function () {
+            timeout = parseInt($("#txtTimeout").val());
+            $("#requestNames tr").removeClass("succ").removeClass("fail");
+            $(".requestNameFlag").html("");
+            $(".requestNameTime").html("");
+            $("#result-box").html("");
+            results = new Array();
+            curAction = 0;
+            requestData();
+        });
+
+        function requestData() {
+            startTime = new Date();
+            handlers[curAction]();
+        }
+
+        // misc Envoy handler
+        var envoyHandler = function (data) {
+            results[curAction] = data;
+            //fullResult[fullResult.length] = results; ///DUMPING RUBBISH TO MEMORY.
+            $("#requestName" + curAction).addClass("succ").removeClass("fail");
+            $("#requestName" + curAction + " .requestNameFlag").html(curTry + " Try");
+            $("#requestName" + curAction + " .requestNameTime").html(getExecTime());
+            curTry = 1;
+            if (curAction < handlers.length - 1) {
+                curAction++;
+                requestData();
+            } else {
+                displayDataResult();
+            }
+        };
+
+        var accessDeniedErrorHandler = function (e) {
+            errorMsg = "The permission for [" + e + "] is not granted.";
+            alert(errorMsg);
+            document.getElementById("result-box").innerHTML = errorMsg;
+        }
+
+        var sidebarErrorHandler = function (data) {
+            $("#requestName" + curAction).removeClass("succ").addClass("fail");
+            $("#requestName" + curAction + " .requestNameFlag").html(curTry + " Try");
+            $("#requestName" + curAction + " .requestNameTime").html(getExecTime());
+            alert("Sidebar error try " + curTry + ": " + data);
+            if (curTry >= 3) {
+                curTry = 1;
+                if (curAction < handlers.length) {
+                    curAction++;
+                    requestData();
+                } else {
+                    displayDataResult();
+                }
+            } else {
+                curTry++;
+                requestData();
+            }
+        };
+
+        function displayDataResult() {
+            curAction = 0;
+
+            var resultStr = "";
+            for (var r = 0; r < results.length; r++) {
+                resultStr += "<div class='resultblock'>" + JSON.stringify(results[r]) + "</div>";
+            }
+            $("#result-box").html(resultStr);
+        }
+
+        var mdEventHandler = function (t) {
+            if (t.Topic.Name == "hcn.md3.clinicalwindow.opened" ||
+				t.Topic.Name == "hcn.md3.currentpatient.recycle") {
+                // Patient window opened
+                window.PatientID = t.Parameter;
+            }
+        };
+
+        Sidebar.Events.subscribe(Sidebar.Esp.onMDEvent, mdEventHandler);
+        Sidebar.Events.subscribe(Sidebar.Envoy.onAllergyResponse, envoyHandler);
+        Sidebar.Events.subscribe(Sidebar.Envoy.onClinicalResponse, envoyHandler);
+        Sidebar.Events.subscribe(Sidebar.Envoy.onConsultationResponse, envoyHandler);
+        Sidebar.Events.subscribe(Sidebar.Envoy.onDemographicsResponse, envoyHandler);
+        Sidebar.Events.subscribe(Sidebar.Envoy.onDiagnosisResponse, envoyHandler);
+        Sidebar.Events.subscribe(Sidebar.Envoy.onHistoryResponse, envoyHandler);
+        Sidebar.Events.subscribe(Sidebar.Envoy.onImmunisationResponse, envoyHandler);
+        Sidebar.Events.subscribe(Sidebar.Envoy.onMeasurementResponse, envoyHandler);
+        Sidebar.Events.subscribe(Sidebar.Envoy.onPathologyAtomResponse, envoyHandler);
+        Sidebar.Events.subscribe(Sidebar.Envoy.onPathologyResponse, envoyHandler);
+        Sidebar.Events.subscribe(Sidebar.Envoy.onPracticeResponse, envoyHandler);
+        Sidebar.Events.subscribe(Sidebar.Envoy.onPrescriptionResponse, envoyHandler);
+        Sidebar.Events.subscribe(Sidebar.Envoy.onRXResponse, envoyHandler);
+        Sidebar.Events.subscribe(Sidebar.Envoy.onTestRequestResponse, envoyHandler);
+        Sidebar.Events.subscribe(Sidebar.Envoy.onPractitionerResponse, envoyHandler);
+        Sidebar.Events.subscribe(Sidebar.Esp.onAddressBookResponse, envoyHandler);
+        Sidebar.Events.subscribe(Sidebar.Esp.onMBSClaimsStatusResponse, envoyHandler);
+        Sidebar.Events.subscribe(Sidebar.Esp.onGetUserListResponse, envoyHandler);
+        Sidebar.Events.subscribe(Sidebar.Dms.onDocumentListResponse, envoyHandler);
+
+        Sidebar.Events.subscribe(Sidebar.Settings.onSidebarError, sidebarErrorHandler);
+
+        function getExecTime() {
+            var rst = "";
+            var now = new Date();
+            var ms = now - startTime;
+            if (ms > 1000) {
+                var ss = Math.floor(ms / 1000);
+                ms = ms - ss * 1000;
+                rst += ss + "s ";
+            }
+            rst += ms + "ms";
+            return rst;
+        }
+    </script>
+</body>
+</html>

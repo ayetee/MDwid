@@ -1,0 +1,11 @@
+<WidgetManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<DisplayName>Test Widget</DisplayName>
+<ID>888888</ID>
+<Version>1.0.0</Version>
+<Keywords>Html, Test, Sample, HCN</Keywords>
+<Description>Test Widget - This is a test sample widget showing how events are fired in MD. This widget also allows you to add progress notes to the patient file that is currently opened. The Test Notification button is just a simple test showing how notification pop up will be displayed in MD Sidebar.</Description>
+<MainFormPath>TestWidget.html</MainFormPath>
+<FlyoutFormPath>TestFlyoutForm.htm</FlyoutFormPath>
+<SettingsFormPath>TestSettings.html</SettingsFormPath>
+<IconPath>Images</IconPath>
+</WidgetManifest>
